@@ -9,3 +9,4 @@ const settingsForm = document.getElementById('settings-form')
 const difficultySelect = document.getElementById('difficulty')
 
 //comment
+
