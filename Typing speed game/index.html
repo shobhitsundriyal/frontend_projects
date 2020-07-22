@@ -9,8 +9,6 @@
     <title>Speed Typing</title>
 </head>
 <body>
-    <script src="script.js"></script>
-
     <button id="settings-btn" class="settings-btn">
         <i class="fa fa-gear"></i>
     </button>
@@ -32,7 +30,7 @@
         <h2>🖉 Speed Typer ✎</h2>
         <small>Type the following</small>
 
-        <h1 id="word">{Word to type}</h1>
+        <h1 id="word"></h1>
         <input type="text" id="text" autocomplete="off" placeholder="Type Here...">
 
         <p class="time-container">
@@ -48,6 +46,6 @@
             <!--to be handled by js-->
         </div>
     </div>
-
+    <script src="script.js"></script> <!--Load scricpt at last so that all elements are loaded berfore to work on-->
 </body>
 </html>
