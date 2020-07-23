@@ -2,7 +2,7 @@ const word = document.getElementById('word')
 const text = document.getElementById('text')
 const scoreEl = document.getElementById('score')
 const timeEl  = document.getElementById('time')
-const endgameEl = document.getElementById('end-game')
+const endgameEl = document.getElementById('end-game-container')
 const settingsbtn = document.getElementById('settings-btn')
 const settings = document.getElementById('settings')
 const settingsForm = document.getElementById('settings-form')
@@ -23,6 +23,10 @@ let score = 0;
 
 let time = 10;
 
+const timeInterval = setInterval(updateTime, 1000)//1000ms -> 1s every 1s updateTime fuction will we called
+
+text.focus(); //directly start typing in input text
+
 function getRandomWord() {
     // Use api here later
     return words[Math.floor(Math.random() * words.length)]
@@ -38,6 +42,27 @@ function addWordToDOM() {
 function updateScore() {
     score++
     scoreEl.innerHTML = score;
+}
+
+function updateTime() {
+    //console.log(time)
+    time--
+    timeEl.innerHTML = time + 's'
+
+    if (time == 0) {
+        clearInterval(timeInterval)
+        //end game
+        gameOver()
+    } 
+}
+
+function gameOver() {
+    endgameEl.innerHTML = `
+    <h1> Time over </h1>
+    <p> Your score is ${score}</p>
+    <button onclick='location.reload()'>Reload</button>
+    `
+    endgameEl.style.display = 'flex'
 }
 
 addWordToDOM()
