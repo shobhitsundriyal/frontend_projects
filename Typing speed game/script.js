@@ -23,6 +23,13 @@ let score = 0;
 
 let time = 10;
 
+//ternary operator fetch difficulty, if not present default is easy
+let difficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'easy'
+
+//to show up locally stored difficulty on page, else it will show only easy on reload
+difficultySelect.value = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'easy'
+
+
 const timeInterval = setInterval(updateTime, 1000)//1000ms -> 1s every 1s updateTime fuction will we called
 
 text.focus(); //directly start typing in input text
@@ -75,5 +82,14 @@ text.addEventListener('input', e=>{
         addWordToDOM() //get new word
         updateScore();
         e.target.value = '' //clear the input text 
+
+        time += 5
+        updateTime()
     }
 })
+
+// Settings select
+settingsForm.addEventListener('change', e => {
+    difficulty = e.target.value;
+    localStorage.setItem('difficulty', difficulty);// store locally so that data is not lost when reloaded
+});
