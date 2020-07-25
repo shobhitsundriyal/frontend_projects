@@ -39,7 +39,8 @@ function getRandomWord() {
     return words[Math.floor(Math.random() * words.length)]
 }
 
-console.log(getRandomWord())
+//console.log(getRandomWord())
+console.log(difficultySelect.value)
 
 function addWordToDOM() {
     randomWord = getRandomWord()
@@ -47,7 +48,15 @@ function addWordToDOM() {
 }
 
 function updateScore() {
-    score++
+    if (difficulty === 'hard'){
+        score += 3
+    }
+    else if(difficulty === 'easy'){
+        score += 1
+    }
+    else {
+        score += 2
+    }
     scoreEl.innerHTML = score;
 }
 
@@ -83,13 +92,27 @@ text.addEventListener('input', e=>{
         updateScore();
         e.target.value = '' //clear the input text 
 
-        time += 5
+        if (difficulty === 'hard'){
+            time += 2
+        }
+        else if(difficulty === 'easy'){
+            time += 6
+        }
+        else {
+            time += 4
+        }
         updateTime()
     }
 })
 
+//settings btn
+settingsbtn.addEventListener('click', () =>
+settings.classList.toggle('hide'));
+
 // Settings select
-settingsForm.addEventListener('change', e => {
+difficultySelect.addEventListener('change', e => {
     difficulty = e.target.value;
+    //console.log(difficulty)
     localStorage.setItem('difficulty', difficulty);// store locally so that data is not lost when reloaded
+    location.reload('true')// reload page to apply the sttings
 });
