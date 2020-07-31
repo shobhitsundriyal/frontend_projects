@@ -68,4 +68,13 @@ h1 {
 .rules.show {
     /*Add class through js*/
     transform: translateX(0px);
+    }
+
+#close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
 }
