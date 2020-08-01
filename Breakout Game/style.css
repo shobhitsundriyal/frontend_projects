@@ -25,7 +25,8 @@ canvas {
 
 h1 {
     color: #f0f0f0;
-    font-size: 3.5rem;
+    font-size: 3rem;
+    margin-bottom: 0.3rem;
 }
 
 
@@ -99,4 +100,8 @@ h1 {
 
 #light-mode.disp {
     top: 1.5rem;
+}
+
+#canvas {
+    margin-bottom: 2rem;
 }
