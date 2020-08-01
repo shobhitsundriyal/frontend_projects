@@ -4,6 +4,21 @@ const rules = document.getElementById('rules')
 const dark = document.getElementById('dark-mode')
 const light = document.getElementById('light-mode')
 const body = document.getElementsByTagName("BODY")[0];
+const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext('2d') // to draw
+
+//create ball
+const ball = {
+    x: canvas.width /2,
+    y: canvas.height / 2,
+    size: 10,
+    //for animation
+    speed: 4,
+    dx: 4,
+    dy: -4
+}
+
+
 
 // toggle rule
 rulesbtn.addEventListener('click', () => rules.classList.add('show'))
