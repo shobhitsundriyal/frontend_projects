@@ -18,7 +18,13 @@ const ball = {
     dy: -4
 }
 
-
+function drawBall() {
+    ctx.beginPath()
+    ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2)
+    ctx.strokeStyle = '#0095dd'
+    ctx.stroke()
+    ctx.closePath()
+}
 
 // toggle rule
 rulesbtn.addEventListener('click', () => rules.classList.add('show'))
@@ -26,7 +32,7 @@ closebtn.addEventListener('click', () => rules.classList.remove('show'))
 dark.addEventListener('click', () => {
     light.classList.add('disp')
     body.classList.add('dm')
-    // more things to add
+    // more things to add, canvas change
 })
 light.addEventListener('click', () => {
     body.classList.remove('dm')
