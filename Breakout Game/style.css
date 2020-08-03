@@ -14,13 +14,17 @@ body {
 }
 
 body.dm {
-    background-color: #222;
+    background-color: #1b1b2f;
 }
 
 canvas {
     background-color: #f0f0f0;
     border-radius: 5px;
     display: block;
+}
+
+canvas.dm  {
+    background-color: #1f4068;
 }
 
 h1 {
