@@ -7,6 +7,9 @@ const body = document.getElementsByTagName("BODY")[0];
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d') // to draw
 
+
+let score = 0;
+
 //Ball properties 
 const ball = {
     x: canvas.width /2,
@@ -47,9 +50,15 @@ function drawBall() {
     ctx.closePath()
 }
 
+function drawScore() {
+    ctx.font = '20px Arial'
+    ctx.fillText(`Score: ${score}`, canvas.width-100, 30)
+}
+
 function drawEverything() {
     drawBall()
     drawPaddle()
+    drawScore()
 }
 
 // toggle rule
