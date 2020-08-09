@@ -10,7 +10,8 @@ const ctx = canvas.getContext('2d') // to draw
 
 let score = 0;
 
-let brick_rows
+const brick_rows_count = 9
+const col_row_count = 5
 
 //Ball properties 
 const ball = {
