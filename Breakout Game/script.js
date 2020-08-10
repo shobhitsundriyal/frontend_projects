@@ -92,11 +92,38 @@ function drawBricks() {
     })
 }
 
+//Move paddle
+function movePaddle() {
+
+    paddle.x = paddle.x + paddle.dx
+
+    //stop paddle at the ends
+    if (paddle.x + paddle.dx > canvas.width){
+        paddle.x = canvas.width - paddle.w
+    }
+    if (paddle.x < 0) {
+        paddle.x = 0
+    }
+}
+
 function drawEverything() {
+    //clear canvas first
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+
     drawBall()
     drawPaddle()
     drawScore()
     drawBricks()
+}
+
+//Update canvas => animation
+function update() {
+
+    movePaddle()
+
+    drawEverything()
+
+    requestAnimationFrame(update)
 }
 
 // toggle rule
@@ -122,4 +149,5 @@ light.addEventListener('click', () => {
     drawEverything()
 })
 
-drawEverything()
+//drawEverything()
+update()
