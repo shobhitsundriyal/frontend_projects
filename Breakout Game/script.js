@@ -11,7 +11,7 @@ const ctx = canvas.getContext('2d') // to draw
 let score = 0;
 
 const brick_rows_count = 9
-const col_row_count = 5
+const brick_col_count = 5
 
 //Ball properties 
 const ball = {
@@ -37,6 +37,28 @@ const paddle = {
 
 }
 
+// Brick props
+const brick_info = {
+    w:70,
+    h:20,
+    padding:10,
+    offsetX:45,
+    offsetY:60,
+    visible:true
+}
+
+// create bricks (logically)
+const bricks =  []
+for (let i=0; i<brick_rows_count; i++){
+    bricks[i] = []
+    for (let j=0; j<brick_col_count; j++){
+        const x = i * (brick_info.w + brick_info.padding) + brick_info.offsetX
+        const y = j * (brick_info.h + brick_info.padding) + brick_info.offsetY
+        bricks[i][j] = {x, y, ...brick_info}// copy all brick_info too
+
+    }
+}
+
 function drawPaddle() {
     ctx.beginPath()
     ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h)
@@ -58,10 +80,23 @@ function drawScore() {
     ctx.fillText(`Score: ${score}`, canvas.width-100, 30)
 }
 
+function drawBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            ctx.beginPath()
+            ctx.rect(brick.x, brick.y, brick.w, brick.h)
+            ctx.fillStyle = brick.visible ? paddle.color : 'transparent'
+            ctx.fill()
+            ctx.closePath()
+        })
+    })
+}
+
 function drawEverything() {
     drawBall()
     drawPaddle()
     drawScore()
+    drawBricks()
 }
 
 // toggle rule
