@@ -126,6 +126,27 @@ function update() {
     requestAnimationFrame(update)
 }
 
+// key press function based on eventListener below
+function keyDown(e){
+    if (e.key === 'Right' || e.key === 'ArrowRight'){
+        paddle.dx = paddle.speed
+    }
+    else if (e.key === 'Left' || e.key === 'ArrowLeft'){
+        paddle.dx = -paddle.speed
+    }
+}
+
+function keyUp(e) {
+    if (e.key === 'Right' || e.key === 'ArrowRight' || e.key === 'Left' || e.key === 'ArrowLeft'){
+        paddle.dx = 0
+    }
+
+}// need to check particular keyUp
+
+//Keyboard event Listeners
+document.addEventListener('keydown', keyDown) //key press
+document.addEventListener('keydown', keyUp) //key release
+
 // toggle rule
 rulesbtn.addEventListener('click', () => rules.classList.add('show'))
 closebtn.addEventListener('click', () => rules.classList.remove('show'))
