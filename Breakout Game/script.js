@@ -145,7 +145,7 @@ function keyUp(e) {
 
 //Keyboard event Listeners
 document.addEventListener('keydown', keyDown) //key press
-document.addEventListener('keydown', keyUp) //key release
+document.addEventListener('keyup', keyUp) //key release
 
 // toggle rule
 rulesbtn.addEventListener('click', () => rules.classList.add('show'))
