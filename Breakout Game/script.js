@@ -106,6 +106,24 @@ function movePaddle() {
     }
 }
 
+//Move Ball
+function moveBall() {
+    ball.x += ball.dx
+    ball.y += ball.dy
+
+    // colision left/right
+    if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0){
+        ball.dx *= -1
+    } 
+    //colision top/bottom
+    if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0){
+        ball.dy *= -1
+    }
+
+    //paddle colision
+    
+}
+
 function drawEverything() {
     //clear canvas first
     ctx.clearRect(0,0, canvas.width, canvas.height)
@@ -120,6 +138,7 @@ function drawEverything() {
 function update() {
 
     movePaddle()
+    moveBall()
 
     drawEverything()
 
