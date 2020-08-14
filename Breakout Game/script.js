@@ -122,6 +122,7 @@ function moveBall() {
 
     //paddle colision
     
+    
 }
 
 function drawEverything() {
