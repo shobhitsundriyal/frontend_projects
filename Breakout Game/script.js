@@ -141,11 +141,18 @@ function moveBall() {
                 ){
                     ball.dy *= -1
                     brick.visible = false
+
+                    increaseScore()
                 }
             }
         })
     })
 
+}
+
+function increaseScore() {
+    score++
+    
 }
 
 function drawEverything() {
