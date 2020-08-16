@@ -121,7 +121,13 @@ function moveBall() {
     }
 
     //paddle colision
-    
+    if(
+        ball.x - ball.size > paddle.x &&
+        ball.y + ball.size > paddle.y &&
+        ball.x + ball.speed < paddle.x + paddle.w
+    ) {
+        ball.dy = -ball.dy
+    }
     
 }
 
