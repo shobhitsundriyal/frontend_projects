@@ -120,6 +120,10 @@ function moveBall() {
         ball.dy *= -1
     }
 
+    if (ball.y + ball.size > canvas.height){
+        // Reset everything
+    }
+
     //paddle colision
     if(
         ball.x - ball.size > paddle.x &&
