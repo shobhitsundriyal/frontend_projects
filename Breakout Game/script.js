@@ -122,13 +122,15 @@ function moveBall() {
 
     if (ball.y + ball.size > canvas.height){
         // Reset everything
+        showAllBricks()
+        score = 0
     }
 
     //paddle colision
     if(
         ball.x - ball.size > paddle.x &&
         ball.y + ball.size > paddle.y &&
-        ball.x + ball.speed < paddle.x + paddle.w
+        ball.x + ball.size < paddle.x + paddle.w
     ) {
         ball.dy = -ball.dy
     }
@@ -160,7 +162,10 @@ function increaseScore() {
     if (score % (brick_col_count*brick_rows_count) === 0){
         // No bricks left
         showAllBricks()
-        ball.speed *= 2
+        if (ball.dx < 12){
+            ball.dx *= 1.3
+            ball.dy *= 1.3
+        }   
     }
 }
 
