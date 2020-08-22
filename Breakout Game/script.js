@@ -157,6 +157,20 @@ function moveBall() {
 function increaseScore() {
     score++
     
+    if (score % (brick_col_count*brick_rows_count) === 0){
+        // No bricks left
+        showAllBricks()
+        ball.speed *= 2
+    }
+}
+
+
+function showAllBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            brick.visible = true
+        })
+    })
 }
 
 function drawEverything() {
